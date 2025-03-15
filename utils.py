@@ -188,8 +188,12 @@ def load_my_state_dict(net, state_dict):
             param = param.data
         own_state[name].copy_(param)
 
-_, term_width = os.popen('stty size', 'r').read().split()
-term_width = int(term_width)
+
+try:
+    _, term_width = os.popen('stty size', 'r').read().split()
+    term_width = int(term_width)
+except ValueError:
+    term_width = 80  # Default terminal width
 
 TOTAL_BAR_LENGTH = 65.
 last_time = time.time()
