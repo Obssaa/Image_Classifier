@@ -12,7 +12,7 @@ nb_cls = 14  # Clothing1M has 14 classes
 arch = "vit_small_patch16"  # Choose model architecture
 
 # Download model from Hugging Face Hub
-repo_id = "Obsaa/jigsaw-vit-clothing1m-obsa4930"  
+repo_id = "Obsaa/jigsaw-vit-clothing1m-obsa4930"  # Replace with your Hugging Face repo ID
 filename = "model.pth"
 model_path = hf_hub_download(repo_id=repo_id, filename=filename)
 
@@ -28,7 +28,7 @@ print("Model loaded successfully!")
 clothing_labels = [
     "T-Shirt", "Shirt", "Knitwear", "Chiffon", "Sweater",
     "Hoodie", "Windbreaker", "Jacket", "Down Coat",
-    "Suit", "Shawl", "Dress", "Vest", "Underwear"
+    "Suit", "Blazer", "Vest", "Sweatpants", "Jeans"
 ]
 
 # Define Image Preprocessing
@@ -50,9 +50,19 @@ def classify_image(image):
     return label
 
 # Gradio Interface
-iface = gr.Interface(fn=classify_image, inputs=gr.Image(type="pil"), outputs="label",
-                     title="Clothing1M Image Classifier",
-                     description="Upload an image to classify it into one of 14 clothing categories.")
+iface = gr.Interface(
+    fn=classify_image,
+    inputs=gr.Image(type="pil"),
+    outputs="label",
+    title="Clothing1M Image Classifier",
+    description="Upload an image to classify it into one of 14 clothing categories.",
+    examples=[
+        ["examples/example1.jpg"],
+        ["examples/example2.jpg"],
+        ["examples/example3.jpg"]
+    ]
+)
 
 # Run the interface
-iface.launch()
+if __name__ == "__main__":
+    iface.launch()
