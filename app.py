@@ -59,9 +59,9 @@ iface = gr.Interface(
     examples=[
         ["examples/example1.jpg"],
         ["examples/example2.jpg"],
-        ["examples/example3.jpg"]
-        ["examples/example4.jpg"]
-        ["examples/example5.jpg"]
+        ["examples/example3.jpg"],
+        ["examples/example4.jpg"],
+        ["examples/example5.jpg"],
         ["examples/example6.jpg"]
     ]
 )
