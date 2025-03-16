@@ -26,9 +26,9 @@ print("Model loaded successfully!")
 
 # Define class labels for Clothing1M
 clothing_labels = [
-    "T-Shirt", "Shirt", "Knitwear", "Chiffon", "Sweater",
-    "Hoodie", "Windbreaker", "Jacket", "Down Coat",
-    "Suit", "Blazer", "Vest", "Sweatpants", "Jeans"
+    "T-Shirt", "Shirt", "Shawl", "Chiffon", 
+    "Dress", "Underwear", "Knitwear", "Vest", "Sweater",
+    "Hoodie", "Down Coat", "Jacket", "Windbreaker", "Suit"
 ]
 
 # Define Image Preprocessing
